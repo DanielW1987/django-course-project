@@ -36,3 +36,21 @@ python3 manage.py startapp {{ name }}
 ```shell
 python3 manage.py runserver
 ```
+
+## Create the database model
+
+```shell
+python3 manage.py makemigrations
+```
+
+This will create migration files within folder `migration` of each app. To run this migration files execute:
+
+```shell
+python3 manage.py migrate
+```
+
+## Create super user
+
+```shell
+python3 manage.py createsuperuser
+```
