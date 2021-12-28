@@ -1,44 +1,27 @@
+{% extends 'meetups/base/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Meetups</title>
-    <link rel="stylesheet" href="{% static 'meetups/css/style.css' %}">
-    <link rel="stylesheet" href="{% static 'meetups/css/meetups.css' %}">
-</head>
-<body>
-    <header id="main-header">
-        <nav>
-            <a href="/meetups" id="main-logo">Meetups</a>
-            <h1>We got gread meetups coming up!</h1>
-            <p>Finde the one that best suits your needs!</p>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <h2>Upcoming Meetups</h2>
-            <ol>
-                {% for meetup in meetups %}
-                    <li class="meetup-item">
-                        <article>
-                            <div class="meetup-summary">
-                                <div class="meetup-image">
-                                    <img src="" alt="">
-                                </div>
-                                <div class="meetup-details">
-                                    <h3>{{ meetup.title }}</h3>
-                                    <address>{{ meetup.location }}</address>
-                                </div>
-                            </div>
-                            <div class="meetup-actions">
-                                <a href="" class="btn">More Details</a>
-                            </div>
-                        </article>
-                    </li>
-                {% endfor %}
-            </ol>
-        </section>
-    </main>
-</body>
-</html>
+
+{% block title %}Meetups{% endblock %}
+
+{% block site_css %}
+<link rel="stylesheet" href="{% static 'meetups/css/meetups.css' %}">
+{% endblock %}
+
+{% block main_heading%}
+We got great meetups coming up!
+{% endblock %}
+
+{% block main_heading_content%}
+<p>Find the one that best suits your needs!</p>
+{% endblock %}
+
+{% block main %}
+<section>
+    <h2>Upcoming Meetups</h2>
+    <ol>
+        {% for meetup in meetups %}
+            {% include 'meetups/includes/meetup-item.html' with title=meetup.title location=meetup.location %}
+        {% endfor %}
+    </ol>
+</section>
+{% endblock %}
