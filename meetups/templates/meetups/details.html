@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-{{ meetup.0.title }}
+{{ meetup.title }}
 {% endblock %}
 
 {% block site_css %}
@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block main_heading %}
-{{ meetup.0.title }}
+{{ meetup.title }}
 {% endblock %}
 
 {% block main %}
@@ -24,7 +24,7 @@
     </section>
     <section id="details">
         <h2>What's this meetup about?</h2>
-        <p>{{ meetup.0.description }}</p>
+        <p>{{ meetup.description }}</p>
         <footer>
             <p>Need more details? Please <a href="">contact the organizer</a></p>
         </footer>
