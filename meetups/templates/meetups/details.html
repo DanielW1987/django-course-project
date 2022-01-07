@@ -15,23 +15,23 @@
 
 {% block main %}
 <article>
-    <img src="" alt="">
+    <img src="{{ meetup.image.url }}" alt="{{ meetup.title }}" id="main-image">
     <section id="location">
         <h2>Meetup Location</h2>
         <address>
-            This meetups takes place in <span>LOCATION</span> (ADDRESS).
+            This meetups takes place in <span>{{ meetup.location.name }}</span> ({{ meetup.location.address }}).
         </address>
     </section>
     <section id="details">
         <h2>What's this meetup about?</h2>
         <p>{{ meetup.description }}</p>
         <footer>
-            <p>Need more details? Please <a href="">contact the organizer</a></p>
+            <p>Need more details? Please <a href="mailto:{{ meetup.organizer_email }}">contact the organizer</a></p>
         </footer>
     </section>
     <section id="registration">
         <h2>Join us!</h2>
-        FORM
+
     </section>
 </article>
 {% endblock %}

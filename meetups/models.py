@@ -22,6 +22,8 @@ class Participant(models.Model):
 
 class Meetup(models.Model):
     title: str = models.CharField(max_length=100)
+    organizer_email: str = models.EmailField(blank=True, null=True)
+    date = models.DateField(blank=True, null=True)
     description: str = models.TextField(blank=True, null=True)
     slug: str = models.SlugField(unique=True)
     image = models.ImageField(upload_to='images', default='', blank=True, null=True)
